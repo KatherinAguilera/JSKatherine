@@ -118,71 +118,80 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"ejercicios/typescript/index.ts":[function(require,module,exports) {
-// Boolean
-var muted = true;
-muted = false; // Números
-
-var age = 6;
-var numerador = 42;
-var denominador = age;
-var resultado = numerador / denominador; // String
-
-var nombre = 'Richard';
-var saludo = "Me llamo " + nombre; // Arreglos
-
-var people = [];
-people = ['Isabel', 'Nicole', 'Raul']; // people.push("9000")
-
-var peopleAndNumbers = [];
-peopleAndNumbers.push('Ricardo');
-peopleAndNumbers.push(9001); // Enum
-
+// // Boolean
+// let muted: boolean = true;
+// muted = false;
+// // Números
+// let age = 6;
+// let numerador: number = 42;
+// let denominador: number = age;
+// let resultado = numerador / denominador;
+// // String
+// let nombre: string = 'Richard';
+// let saludo = `Me llamo ${nombre}`;
+// // Arreglos
+// let people: string[] = [];
+// people = ['Isabel', 'Nicole', 'Raul'];
+// // people.push("9000")
+// let peopleAndNumbers: Array<string | number> = [];
+// peopleAndNumbers.push('Ricardo');
+// peopleAndNumbers.push(9001);
+// // Enum
+// enum Color {
+//   Rojo = 'Rojo',
+//   Verde = 'Verde',
+//   Azul = 'Azul',
+//   Amarillo = 'Amarillo',
+// }
+// let colorFavorito: Color = Color.Amarillo;
+// console.log(`Mi color favorito es ${colorFavorito}`);
+// // Any algun tipo de variable
+// let comodin: any = 'Joker';
+// comodin = { type: 'Wildcard' };
+// // Object
+// let someObject: object = { type: 'Wildcard' };
+// // Funciones
+// function add(a: number, b: number): number {
+//   return a + b;
+// }
+// const sum = add(4, 6);
+// function createAdder(a: number): (number) => number {
+//   return function(b: number) {
+//     return b + a;
+//   };
+// }
+// const addFour = createAdder(4);
+// const fourPlus6 = addFour(6);
+// function fullName(firstName: string, lastName: string = 'Smith'): string {
+//   return `${firstName} ${lastName}`;
+// }
+// const richard = fullName('Agente');
+// console.log(richard);
+//**** Interfaces
 var Color;
 
 (function (Color) {
   Color["Rojo"] = "Rojo";
   Color["Verde"] = "Verde";
-  Color["Azul"] = "Azul";
-  Color["Amarillo"] = "Amarillo";
 })(Color || (Color = {}));
 
-var colorFavorito = Color.Amarillo;
-console.log("Mi color favorito es " + colorFavorito); // Any algun tipo de variable
+var rect = {
+  ancho: 4,
+  alto: 6
+};
 
-var comodin = 'Joker';
-comodin = {
-  type: 'Wildcard'
-}; // Object
-
-var someObject = {
-  type: 'Wildcard'
-}; // Funciones
-
-function add(a, b) {
-  return a + b;
+function area(r) {
+  return r.alto * r.ancho;
 }
 
-var sum = add(4, 6);
+var areaRect = area(rect);
+console.log(areaRect);
 
-function createAdder(a) {
-  return function (b) {
-    return b + a;
-  };
-}
+rect.toString = function () {
+  return this.color ? "Un rectangulo " + this.color : "Un rectangulo";
+};
 
-var addFour = createAdder(4);
-var fourPlus6 = addFour(6);
-
-function fullName(firstName, lastName) {
-  if (lastName === void 0) {
-    lastName = 'Smith';
-  }
-
-  return firstName + " " + lastName;
-}
-
-var richard = fullName('Agente');
-console.log(richard);
+console.log(rect.toString());
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
